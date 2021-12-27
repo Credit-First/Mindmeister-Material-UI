@@ -5,7 +5,6 @@ import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
@@ -14,17 +13,13 @@ import MenuItem from '@mui/material/MenuItem';
 
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import Stack from '@mui/material/Stack';
-import DeleteIcon from '@mui/icons-material/Delete';
-import { AddShoppingCart as AddShoppingCartIcon, AddCircle, UndoOutlined, RedoOutlined, ErrorOutline, BlockOutlined, StarPurple500, ArrowBackIos } from '@mui/icons-material';
+import { AddShoppingCart as AddShoppingCartIcon, AddCircle, UndoOutlined, RedoOutlined, ErrorOutline, StarPurple500, ArrowBackIos } from '@mui/icons-material';
 
-
-import { styled, alpha } from '@mui/material/styles';
+import { styled } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
 
-const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
-
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -52,7 +47,7 @@ const SearchIconWrapper = styled('div')(({ theme }) => ({
 }));
 
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
-  color: 'inherit',
+  color: 'white',
   '& .MuiInputBase-input': {
     padding: theme.spacing(1, 1, 1, 0),
     // vertical padding + font size from searchIcon
@@ -70,18 +65,10 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 
 const ResponsiveAppBar = () => {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
-  const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget);
-  };
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
-  };
-
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
   };
 
   const handleCloseUserMenu = () => {
@@ -92,62 +79,7 @@ const ResponsiveAppBar = () => {
     <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          {/* <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-            <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-              color="inherit"
-            >
-              <ArrowBackIos />
-            </IconButton>
-            <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-              color="inherit"
-            >
-              <MenuIcon />
-            </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'left',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'left',
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{
-                display: { xs: 'block', md: 'none' },
-              }}
-            >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
-          >
-            LOGO
-          </Typography> */}
-
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, alignItems: 'center' }}>
+          <Box sx={{ flexGrow: 1, display: { md: 'flex' }, alignItems: 'center' }}>
             <Stack direction="row" spacing={1}>
               <IconButton
                 color="secondary"
@@ -170,12 +102,6 @@ const ResponsiveAppBar = () => {
                 <ErrorOutline />
               </IconButton>
             </Stack>
-            {/* <IconButton color="primary" aria-label="upload picture"
-              sx={{ my: 2, color: 'parimary', display: 'block' }}
-              component="span"
-            >
-              <PhotoCamera />
-            </IconButton> */}
           </Box>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, alignItems: 'center', justifyContent: 'right' }} mr={2}>
@@ -205,12 +131,6 @@ const ResponsiveAppBar = () => {
                 />
               </Search>
             </Stack>
-            {/* <IconButton color="primary" aria-label="upload picture"
-              sx={{ my: 2, color: 'parimary', display: 'block' }}
-              component="span"
-            >
-              <PhotoCamera />
-            </IconButton> */}
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
@@ -236,7 +156,7 @@ const ResponsiveAppBar = () => {
               onClose={handleCloseUserMenu}
             >
               {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseNavMenu}>
+                <MenuItem key={setting} color='secondary'>
                   <Typography textAlign="center">{setting}</Typography>
                 </MenuItem>
               ))}

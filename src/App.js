@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.css';
 import ResponsiveAppBar from './components/AppBar';
-import { IconButton, ButtonGroup, Box, AppBar, Toolbar, Button, Badge } from '@mui/material';
-import { Add, HorizontalRule, GpsFixed, Tv, MoreTime, Done, ContactSupport, CloudDownload, Print } from '@mui/icons-material';
+import { IconButton, ButtonGroup, Box } from '@mui/material';
+import { Add, HorizontalRule, GpsFixed } from '@mui/icons-material';
 import Picker, { SKIN_TONE_MEDIUM_DARK } from 'emoji-picker-react';
-import KeyboardArrowDown from '@mui/icons-material/KeyboardArrowDown';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
+import Footer from './components/Footer';
 
 const theme = createTheme({
   palette: {
@@ -81,37 +81,7 @@ function App() {
             />
           </Box>
         </Box>
-        <AppBar position="fixed" color="default" sx={{ top: 'auto', bottom: 0 }}>
-          <Toolbar>
-            <Badge badgeContent={4} color="error" sx={{ mr: 2 }} >
-              <ContactSupport />
-            </Badge>
-            <IconButton color="primary" aria-label="open drawer">
-              <MoreTime />
-            </IconButton>
-            <IconButton color="primary" aria-label="open drawer">
-              <Tv />
-            </IconButton>
-            <IconButton color="primary" aria-label="open drawer">
-              <Done />
-            </IconButton>
-            <Button
-              id="demo-customized-button"
-              variant='outlined'
-              color="primary"
-              endIcon={<KeyboardArrowDown />}
-            >
-              Share
-            </Button>
-            <Box sx={{ flexGrow: 1 }} />
-            <IconButton color="primary">
-              <CloudDownload />
-            </IconButton>
-            <IconButton color="primary">
-              <Print />
-            </IconButton>
-          </Toolbar>
-        </AppBar>
+        <Footer />
       </ThemeProvider>
     </div>
   );
